@@ -2,12 +2,15 @@
 
 namespace Database\Seeders;
 
+use App\Constants\UserType;
 use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class AdminSeeder extends Seeder
 {
+
+    const MAX_NUMBER_OF_USERS = 100;
     /**
      * Run the database seeds.
      *
@@ -15,14 +18,17 @@ class AdminSeeder extends Seeder
      */
     public function run()
     {
-        User::create([
-            'name' => 'admin',
-            'email' => 'admin@example.com',
-            'password' => bcrypt('123456'),
-            'type' => 1,
-        ]);
+        $users = array();
 
+        for ($i = 0; $i < self::MAX_NUMBER_OF_USERS ; $i++) {
+            $users []= [
+                'name' => "admin {$i}",
+                'email' => "admin{$i}@example.com",
+                'password' => bcrypt('123456'),
+                'type' => UserType::TYPE_ADMIN
+            ];
+        }
 
-        dd('Success');
+        User::insert($users);
     }
 }
