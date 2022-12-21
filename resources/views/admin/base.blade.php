@@ -4,31 +4,34 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    {{-- <title>Admin| @yield('title')</title> --}}
+    <title>Admin | @yield('title')</title>
 
     <!-- Preloader -->
-    @include('Admin.Includes.styles')
+    @include('admin.includes.styles')
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
         <!-- Preloader -->
-        @include('Admin.Includes.preloader')
+        @include('admin.includes.preloader')
+
+        <!-- Navbar -->
+        @include('admin.includes.navbar')
 
         <!-- Main Sidebar Container -->
-        @include('Admin.Includes.sidebar')
+        @include('admin.includes.sidebar')
 
         <!-- Content Wrapper. Contains page content -->
-        @include('Admin.Includes.content')
+        @include('admin.includes.content')
 
         <!-- Footer -->
-        @include('Admin.Includes.footer')
+        @include('admin.includes.footer')
 
         <!-- Control Sidebar -->
-        @include('Admin.Includes.sidebar_control')
+        @include('admin.includes.sidebar_control')
     </div>
     <!-- Scripts -->
-    @include('Admin.Includes.scripts')
+    @include('admin.includes.scripts')
 </body>
 
 </html>

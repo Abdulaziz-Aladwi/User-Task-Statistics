@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\Home\HomeController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+
+Route::redirect('/', 'admin');
+Route::group(['middleware' => 'auth', 'prefix' => 'admin','as' => 'admin.'], function(){
+    Route::get('/', [HomeController::class, 'index'])->name('home');
 });
+
+
+Auth::routes(['register' => false]);
+

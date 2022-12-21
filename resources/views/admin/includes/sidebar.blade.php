@@ -7,7 +7,7 @@
                     alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Alexander Pierce</a>
+                <a href="{{route('admin.home')}}" class="d-block">{{auth()->user()->name}}</a>
             </div>
         </div>
 
@@ -15,17 +15,14 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                 data-accordion="false">
                 <li class="nav-item">
-                    <a href="" class="nav-link">
-                        <i class="nav-icon far fa-image"></i>
-                        <p>Gallery</p>
+                    <a href="{{route('admin.home')}}" class="nav-link">
+                        <i class="nav-icon far fa fa-home"></i>
+                        <p>Home</p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="" class="nav-link">
-                        <i class="nav-icon fas fa-file"></i>
-                        <p>Documentation</p>
-                    </a>
-                </li>
+               
+
+
             </ul>
         </nav>
     </div>
