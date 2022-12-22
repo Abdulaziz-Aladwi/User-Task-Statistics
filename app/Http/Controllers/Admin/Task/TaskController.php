@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Admin\Task;
 use App\Constants\UserType;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Task\StoreRequest;
+use App\Jobs\Admin\Statistics\UpdateUserTasksCount;
 use App\Services\Task\TaskService;
 use App\Services\User\UserService;
 use Illuminate\Http\Request;
@@ -60,7 +61,8 @@ class TaskController extends Controller
 
     public function store(StoreRequest $request)
     {
-        $this->taskService->create($request->validated());
+        $task = $this->taskService->create($request->validated());
+        $this->taskService->updateUserTasksCount($task->assignee);
         return redirect()->route('admin.tasks.index')->withSuccess('Data Saved Successfully');;
     }
 }

@@ -15,21 +15,21 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                 data-accordion="false">
                 <li class="nav-item">
-                    <a href="{{route('admin.home')}}" class="nav-link">
+                    <a href="{{route('admin.home')}}" class="nav-link {{activeAdminTab(null)}}">
                         <i class="nav-icon far fa fa-home"></i>
                         <p>Home</p>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{route('admin.tasks.index')}}" class="nav-link">
+                    <a href="{{route('admin.tasks.index')}}" class="nav-link {{activeAdminTab('tasks')}}">
                         <i class="nav-icon far fa fa-home"></i>
                         <p>Tasks</p>
                     </a>
                 </li>                
 
                 <li class="nav-item">
-                    <a href="{{route('admin.statistics.index')}}" class="nav-link">
+                    <a href="{{route('admin.statistics.index')}}" class="nav-link {{activeAdminTab('statistics')}}">
                         <i class="nav-icon far fa fa-home"></i>
                         <p>Statistics</p>
                     </a>

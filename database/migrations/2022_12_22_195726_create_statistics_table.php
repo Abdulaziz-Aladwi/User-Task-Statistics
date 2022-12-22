@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('statistics', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('assigned_to_id');
-            $table->integer('tasks_count');
+            $table->integer('tasks_count')->default(0);
             $table->timestamps();
             $table->foreign('assigned_to_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
         });

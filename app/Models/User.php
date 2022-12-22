@@ -46,4 +46,9 @@ class User extends Authenticatable
     {
         return $query->whereType($type);
     }
+
+    public function statistic()
+    {
+        return $this->hasOne(Statistic::class, 'assigned_to_id');
+    }
 }
