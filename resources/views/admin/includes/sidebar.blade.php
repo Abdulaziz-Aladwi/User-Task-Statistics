@@ -20,8 +20,20 @@
                         <p>Home</p>
                     </a>
                 </li>
-               
 
+                <li class="nav-item">
+                    <a href="{{route('admin.tasks.index')}}" class="nav-link">
+                        <i class="nav-icon far fa fa-home"></i>
+                        <p>Tasks</p>
+                    </a>
+                </li>                
+
+                <li class="nav-item">
+                    <a href="{{route('admin.statistics.index')}}" class="nav-link">
+                        <i class="nav-icon far fa fa-home"></i>
+                        <p>Statistics</p>
+                    </a>
+                </li>                
 
             </ul>
         </nav>
