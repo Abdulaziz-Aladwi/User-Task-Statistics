@@ -21,14 +21,14 @@ class DatabaseCreateCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'database:create {name?}';
+    protected $signature = 'database:create';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'This command is used to create application database defined in env file';
 
     /**
      * @param DatabaseConfigurationService
@@ -48,8 +48,7 @@ class DatabaseCreateCommand extends Command
     public function handle()
     {
         try {
-            $schemaName = $this->argument('name');
-            $dbConfigurations = $this->databaseConfigurationService->getDatabaseCharacteristics($schemaName);
+            $dbConfigurations = $this->databaseConfigurationService->getDatabaseCharacteristics();
             $query = $this->databaseConfigurationService->prepareQuery($dbConfigurations);
             $this->databaseConfigurationService->executeQuery($query);
 

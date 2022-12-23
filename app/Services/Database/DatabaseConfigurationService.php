@@ -14,10 +14,10 @@ class DatabaseConfigurationService
      *
      * @return array
      */
-    public function getDatabaseCharacteristics($schemaName = null): array
+    public function getDatabaseCharacteristics(): array
     {
         return [
-            'schemaName' => $schemaName ?? config("database.connections.mysql.database"),
+            'schemaName' => config("database.connections.mysql.database"),
             'charset' => config("database.connections.mysql.charset",'utf8mb4'),
             'collation' => config("database.connections.mysql.collation",'utf8mb4_unicode_ci')
         ];
