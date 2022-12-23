@@ -67,4 +67,14 @@ class DatabaseConfigurationService
     {
         config(["database.connections.mysql.database" => $schemaName]);
     }
+
+    /**
+     * Reset Database configuration
+     *
+     * @return void
+     */
+    public function resetDatabaseConfiguration(): void
+    {
+        config(["database.connections.mysql.database" => null]);
+    }
 }

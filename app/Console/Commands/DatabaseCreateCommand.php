@@ -28,7 +28,7 @@ class DatabaseCreateCommand extends Command
      *
      * @var string
      */
-    protected $description = 'This command is used to create application database defined in env file';
+    protected $description = 'This command is used to create application database defined in .env file';
 
     /**
      * @param DatabaseConfigurationService
@@ -50,9 +50,12 @@ class DatabaseCreateCommand extends Command
         try {
             $dbConfigurations = $this->databaseConfigurationService->getDatabaseCharacteristics();
             $query = $this->databaseConfigurationService->prepareQuery($dbConfigurations);
+            
+            $this->databaseConfigurationService->resetDatabaseConfiguration($dbConfigurations);
             $this->databaseConfigurationService->executeQuery($query);
 
             $this->info("Database {$dbConfigurations['schemaName']} has been created successfully");
+            
         } catch (\Exception $exception) {
             $this->logger->error($exception->getMessage(), $exception->getTrace());
             $this->error("Something went wrong, please check logs");
