@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 
 class NormalUserSeeder extends Seeder
 {
-    const MAX_NUMBER_OF_USERS = 2000;
+    const MAX_NUMBER_OF_USERS = 10000;
     const BATCH_SIZE = 500;
 
     /**
