@@ -2,6 +2,7 @@
 
 namespace App\Services\Task;
 
+use App\Constants\QueueName;
 use App\Jobs\Admin\Statistics\UpdateUserTasksCount;
 use App\Models\Task;
 use Illuminate\Database\Eloquent\Builder;
@@ -40,6 +41,6 @@ class TaskService
 
     public function updateUserTasksCount($task): void
     {
-        dispatch(new UpdateUserTasksCount($task));
+        dispatch(new UpdateUserTasksCount($task))->onQueue(QueueName::UPDATE_USER_TASK_STATISTICS);
     }
 }
